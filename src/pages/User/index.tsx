@@ -1,9 +1,9 @@
-import { Button, Card, Container, Grid, Group, NativeSelect, Select, Text, TextInput, Textarea  } from "@mantine/core";
+import { Button, Box, Container, NativeSelect, Select, Text, TextInput, Textarea, SimpleGrid  } from "@mantine/core";
 import { useUserStyle } from "./style";
-import { IconAdFilled, IconAt, IconCalendarHeart,  IconChevronDown,  IconLocation, IconPhone } from "@tabler/icons-react";
+import {   IconChevronDown,  } from "@tabler/icons-react";
 import { useForm } from "@mantine/form";
 import { DateTimePicker } from '@mantine/dates';
-import { PasswordInput } from "@mantine/core";
+
 export const UserPage = () => {
 
     const form = useForm({
@@ -19,43 +19,26 @@ export const UserPage = () => {
 
   const { classes } = useUserStyle();
 
+ 
+
   return(
-    
-    
-     <Container className={classes.content}>
-              
+      
+    <Container className={classes.content}>
       
   
-   
-     <Grid gutter={4} gutterXs="md" gutterMd="xl" gutterXl={50} >
-    
-      <Grid.Col span={5}><div><Text sx={{color: '#00ECE5', fontSize: '1.1rem', lineHeight: 1.4 }} ></Text> </div>
-      <div>
-            <img style={{width:"40px", height:"40px", borderRadius: "50%"}}
-              src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-              alt=""
-                       />             
-        <Text style={{fontSize:"20px", fontWeight: "bold"}}>Abebe Kebde</Text>
-     </div>
-     <div>
-      <br />
-      <Text sx={{gap: '10px', mb:'40px'}}>
-        <Text >My Account</Text>
-         
-        <Text>Change Password</Text>
-      
-        <Text>Order History</Text>
-        </Text>
-     </div>
+    <SimpleGrid 
+    cols={2}
+    spacing="lg"
+    breakpoints={[
+      { maxWidth: '62rem', cols: 3, spacing: 'md' },
+      { maxWidth: '48rem', cols: 2, spacing: 'sm' },
+      { maxWidth: '36rem', cols: 1, spacing: 'sm' },
+    ]}>
+            <div>
+            User Update
+        <Box sx={{ border: '1px solid teal', padding: '10px' ,borderRadius: '5px', alignItems: 'flex-end'}} 
+        >
            
-            </Grid.Col>
-            <Grid.Col span={7}>  
-            <Text >
-        User Update
-        </Text>
-        <Container  sx={{ border: '1px solid teal', padding: '10px', borderRadius: '5px' }}
-        size="md"
-        mt={20}>
       <TextInput
           withAsterisk
           label="First Name"
@@ -66,6 +49,7 @@ export const UserPage = () => {
         <TextInput
           withAsterisk
           label="Last Name"
+          description=" must include character and a word"
           placeholder="last name"
           {...form.getInputProps('last name')}
         />
@@ -74,12 +58,14 @@ export const UserPage = () => {
          withAsterisk
       valueFormat="DD MMM YYYY hh:mm A"
       label="Birth Date"
+      description=" must select the date month and year of the birthdate"
       placeholder=" birthdate"
       maw={400}
       mx="auto"
     />
         <NativeSelect
       label="Gender"
+       
       placeholder="Gender"
       data={['Male', 'Female']}
       rightSection={<IconChevronDown size="1rem" />}
@@ -89,17 +75,18 @@ export const UserPage = () => {
          <TextInput
           withAsterisk
           label="Nationality"
+          description=" must include character and a word"
           placeholder="nationality"
           {...form.getInputProps('nationality')}
         />
       
      
-        </Container>
-    <br />
+        </Box>
+        </div>
+        <div>
      <Text>User Address</Text>
-    <Container  sx={{ border: '1px solid teal', padding: '10px' ,borderRadius: '5px'}}
-        size="md"
-        mt={20}>
+   <Box sx={{ border: '1px solid teal', padding: '10px' ,borderRadius: '5px'}}
+         >
           
           <Select
       label="Country"
@@ -123,7 +110,7 @@ export const UserPage = () => {
     />
         <TextInput
           withAsterisk
-          label="Phone Nymber"
+          label="Phone Number"
           placeholder="phone number"
           {...form.getInputProps('phone number')}
         />
@@ -143,25 +130,20 @@ export const UserPage = () => {
       />
          
    
-        </Container>
+        </Box>
+        </div>
     <div> 
         <br />
     <Button>
       Update
     </Button>
     </div>
-            </Grid.Col>
+            
                        
-<Grid.Col span={6}><div><Text sx={{ color: '#00ECE5', fontSize: '1.1rem', lineHeight: 1.4 }} ></Text> </div>  
-
-                
-
-
-</Grid.Col>
  
-</Grid>
+    </SimpleGrid> 
 </Container>
-    
+     
     
 
      
