@@ -2,6 +2,10 @@ import {
     createStyles,
   } from '@mantine/core';
 export const useUserStyle = createStyles((theme) => ({
+    content:{
+        minWidth:"600px"
+
+    },
 
     user:{
         flex: "4",
@@ -9,7 +13,7 @@ export const useUserStyle = createStyles((theme) => ({
     
     userTitleContainer:{
         display: "flex",
-        alignItems: "center",
+         
         justifyContent:"space-between"
 
     },

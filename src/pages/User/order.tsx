@@ -16,7 +16,7 @@ export const OrderPage = () => {
   const { classes } = useUserStyle();
 
   return(
-    <div>       
+      
     
      <Container className={classes.content}>
     
@@ -73,7 +73,6 @@ from now on.
 </Grid>
   
 </Container>
-     </div>
- 
+   
   )
 };

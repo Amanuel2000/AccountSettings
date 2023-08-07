@@ -20,7 +20,7 @@ export const UserPage = () => {
   const { classes } = useUserStyle();
 
   return(
-    <div>       
+    
     
      <Container className={classes.content}>
               
@@ -161,7 +161,7 @@ export const UserPage = () => {
  
 </Grid>
 </Container>
-     </div>
+    
     
 
      
