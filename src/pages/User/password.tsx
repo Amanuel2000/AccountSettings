@@ -1,48 +1,44 @@
-import { Button,   Container, Grid,  Text,  } from "@mantine/core";
-import { useUserStyle } from "./style";
+import { rem, Button, Card, Group, PasswordInput, Text } from "@mantine/core";
 
- 
-import { PasswordInput } from "@mantine/core";
- 
-export const PasswordPage = () => {
+export const Password = () => {
+  return (
+    <>
+      <Card
+        withBorder
+        shadow="md"
+        radius="md"
+        sx={{ width: "400px", height: "100%" }}>
+        <Card.Section
+          withBorder
+          inheritPadding
+          py="xs"
+          sx={(theme) => ({ backgroundColor: theme.colors.gray[0] })}>
+          <Group position="apart">
+            <Text weight={500}>Change Password</Text>
+          </Group>
+        </Card.Section>
 
-   
-  const { classes } = useUserStyle();
-
-  return(
-         
-     <Container className={classes.content}>              
-     <Grid gutter={2} gutterXs="md" gutterMd="xl" gutterXl={50} >
-          
-     <Grid.Col span={12}>  
-      <Text>  Change Password</Text>
-    <Container  sx={{ border: '1px solid teal', padding: '10px' ,borderRadius: '5px'}}
-         >   
         <PasswordInput
-      placeholder="Old Password"
-      label=" Old Password"
-      description="Password must include at least one letter, number and special character"
-      withAsterisk/>
-        
+          placeholder="Old Password"
+          label=" Old Password"
+          description="Password must include at least one letter, number and special character"
+          withAsterisk
+        />
+
         <PasswordInput
-      placeholder="New Password"
-      label="New Password"
-      description="Password must include at least one letter, number and special character"
-      withAsterisk/>
-         <PasswordInput
-      placeholder="Confrim Password"
-      label="Confirm Password"
-      description="Password must include at least one letter, number and special character"
-      withAsterisk/>
-   </Container>
-    <div> 
+          placeholder="New Password"
+          label="New Password"
+          withAsterisk
+        />
+        <PasswordInput
+          placeholder="Confrim Password"
+          label="Confirm Password"
+          withAsterisk
+        />
+
         <br />
-    <Button>
-     Submit
-    </Button>
-    </div>
-            </Grid.Col>
-</Grid>
-</Container>
-  )
+        <Button>Submit</Button>
+      </Card>
+    </>
+  );
 };

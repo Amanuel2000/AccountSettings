@@ -1,22 +1,16 @@
 import {
-    createStyles,
+    createStyles,rem
   } from '@mantine/core';
 export const useUserStyle = createStyles((theme) => ({
-    content:{
-        minWidth:"600px",
-        alignItems: "flex-end",
-        display:'flex',
-        flexDirection: 'column',
-
-    },
-    simpleGrid:{
-        marginTop: '0px',
-        alignItems: "flex-end",
-        display:'flex',
-        flexDirection: 'column',
-
-    },
-
+    order: {         
+    maxWidth: rem(400),
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'flex-end',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+  
+    }
 
     
 

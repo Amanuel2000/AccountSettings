@@ -1,52 +1,67 @@
-import { Text, Box, SimpleGrid, Container, TextInput, NavLink } from '@mantine/core';
-import React from 'react'
-import { useForm } from "@mantine/form";
-import { Link, Outlet,  } from 'react-router-dom'
-import { IconPhotoPlus } from '@tabler/icons-react';
+import { Text, rem, Box } from "@mantine/core";
+import {
+  IconHistory,
+  IconLock,
+  IconPassword,
+  IconUser,
+} from "@tabler/icons-react";
 
+import { NavLink, Outlet } from "react-router-dom";
 
 export const UserManagment = () => {
-   
   return (
-   <Box sx={{display: 'flex', alignContent: 'flex-start'}}>
-    <SimpleGrid>
-        
-    </SimpleGrid>
-    <Box >
-     
-       <img style={{ width:"40px", height:"40px", borderRadius: "50%"}}
-              src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
-              alt=""
-                       />      
-                          
-        <Text style={{  fontSize:"20px", fontWeight: "bold"}}>Abebe Kebde</Text>
-        <Box  sx={(theme) => ({
-        backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.colors.gray[0],
-        textAlign: 'center',
-        padding: theme.spacing.xl,
-        borderRadius: theme.radius.md,
-        cursor: 'pointer',
+    <Box
+      sx={(theme) => ({
+        backgroundColor: theme.colors.gray[7],
+        justifyContent: "space-between",
+        gap: "20px",
+        display: "flex",
+        flexDirection: "row",
+      })}>
+      <Box>
+        <img
+          style={{ width: "40px", height: "40px", borderRadius: "50%" }}
+          src="https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"
+          alt=""
+        />
 
-        '&:hover': {
-          backgroundColor:
-            theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1],
-        },
-      })} >
-        <Text sx={{gap: '10px', mb:'40px', display: 'flex', flexDirection: 'column', alignItems: 'flex-start'}}>
-        
-        <Text  component={Link} variant="link" to ="users">My Account</Text>
-        <Text   component={Link} variant="link" to ="password">Change Password</Text>
-        <Text    component={Link} variant="link" to ="order">Order History</Text>
-      </Text>
+        <Text style={{ fontSize: "20px", fontWeight: "bold" }}>
+          Abebe Kebde
+        </Text>
+        <hr />
+        <Box>
+          <Text
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              marginLeft: "10px",
+              gap: "15px",
+            }}>
+            <Text sx={{ alignContent: "center" }}>
+              <IconUser /> <NavLink to="users"> Account</NavLink>
+            </Text>
+
+            <Text>
+              <IconLock />
+              <NavLink to="password">Change Password </NavLink>
+            </Text>
+
+            <Text>
+              <IconHistory /> <NavLink to="order"> Order History</NavLink>
+            </Text>
+          </Text>
+        </Box>
       </Box>
-      
-    </Box>
-    <Box>
-        <Outlet/>
-    </Box>
-     
-   </Box>
-  )
-}
+      <Box
+        sx={(theme) => ({
+          backgroundColor: theme.colors.gray[3],
 
- 
+          justifyContent: "space-between",
+          gap: "20px",
+        })}>
+        <Outlet />
+      </Box>
+    </Box>
+  );
+};
